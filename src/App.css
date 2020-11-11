@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+:root {
+    --primary: #14274e;
+    --secondary: #394867;
+    --third : #9ba4b4;
+    --text-primary : #292929;
+    --text-secondary : #f1f6f9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    font-family: 'Rubik', sans-serif;
+    background-color:  #f0f0f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.star-bg-gradient{
+    background-image: linear-gradient( 109.6deg,  rgba(48,207,208,1) 11.2%, #14274e 92.5% );
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.star-bg-primary {
+    background-color: var(--primary);
 }
 
-.App-link {
-  color: #61dafb;
+.star-bg-secondary{
+    background-color: var(--secondary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.star-bg-third{
+    background-color: var(--third);
+}
+  
+.star-color-primary{
+    color: var(--primary);
+}
+
+.star-color-secondary{
+    color: var(--secondary);
+}
+
+.star-color-third{
+    color: var(--third);
+}
+
+.star-text-primary-color{
+    color: var(--text-primary);
+}
+
+.star-text-secondary-color{
+    color: var(--text-secondary);
+}
+
+.font-10{
+    font-size: 10px;
+}
+
+.font-12{
+    font-size: 12px;
+}
+
+.font-14{
+    font-size: 14px;
+}
+
+.font-16{
+    font-size: 16px;
+}
+
+.font-18{
+    font-size: 18px;
+}
+
+.font-20{
+    font-size: 20px;
+}
+
+.star-link{
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+}
+
+.star-link:hover{
+    text-decoration: none;
+    color: inherit;
+    user-select: none;
+}
+
+.star-input:focus{
+    outline: none;
+}
+
+.image-not-draggable{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
