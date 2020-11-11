@@ -6,7 +6,7 @@ export function Jumbotron(props) {
     return (
         <div className='star-bg-gradient py-5'>
             <div className="container text-center">
-                <h1 className='text-white text-capitalize font-weight-bold font-24'>Moviegoers Things</h1>
+                <h1 className='text-white text-capitalize font-weight-bold font-24'>Search Movie</h1>
                 <span style={{display : "inline-block",borderRadius : "200px"}} className='bg-white p-4 shadow my-4'>
                     <img src={cameraIcon} width='100px'alt="icon"/>
                 </span>
