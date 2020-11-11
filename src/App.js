@@ -1,15 +1,29 @@
 import React from 'react'
-import { Emptydata } from './components/EmptyData'
+import { connect } from 'react-redux'
+import Favourite from './components/Favourite'
 import Jumbotron from './components/Jumbotron'
+import Movielist from './components/MovieList'
 import Navigations from './components/Navigations'
 function App(props) {
   return (
     <div>
       <Navigations />
       <Jumbotron />
-      <Emptydata />
+      {
+        props.pages === 'search' ? 
+        <Movielist />
+        :
+        <Favourite />
+      }
     </div>
   )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+      pages : state.pages
+  }
+}
+
+
+export default connect(mapStateToProps)(App);
