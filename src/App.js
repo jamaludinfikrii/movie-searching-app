@@ -1,4 +1,5 @@
 import React from 'react'
+import { Emptydata } from './components/EmptyData'
 import Jumbotron from './components/Jumbotron'
 import Navigations from './components/Navigations'
 function App(props) {
@@ -6,6 +7,7 @@ function App(props) {
     <div>
       <Navigations />
       <Jumbotron />
+      <Emptydata />
     </div>
   )
 }
