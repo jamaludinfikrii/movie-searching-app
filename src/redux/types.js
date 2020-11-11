@@ -1,0 +1,1 @@
+export const CHANGE_PAGES = 'CHANGE_PAGES'
