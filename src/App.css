@@ -4,6 +4,7 @@
     --third : #9ba4b4;
     --text-primary : #292929;
     --text-secondary : #f1f6f9;
+    --active-link : #b3b3b3;
 }
 
 body{
@@ -76,6 +77,14 @@ body{
     cursor: pointer;
     text-decoration: none;
     user-select: none;
+}
+
+.star-active-link{
+    color: var(--active-link);
+    cursor: pointer;
+    text-decoration: underline;
+    user-select: none;
+
 }
 
 .star-link:hover{
