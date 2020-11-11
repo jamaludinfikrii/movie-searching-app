@@ -9,11 +9,7 @@ function App(props) {
   
   let {getStorage} = props
   useEffect(() => {
-    const getFavouriteData = () => {
-      getStorage()
-    }
-
-    getFavouriteData()
+    getStorage()
   })
 
   return (

@@ -1,4 +1,4 @@
-import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES } from "./types";
+import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES, NULL_FAVOURITE } from "./types";
 
 const movieState = {
     movies : null,
@@ -14,6 +14,8 @@ const MovieReducers = (state=movieState, action) => {
             return{...state , pages : action.payload}
         case CHANGE_FAVOURITE_DATA :
             return {...state,favourite : action.payload.favourites, favourite_ids : action.payload.favourites_ids}
+        case NULL_FAVOURITE:
+            return{...state,favourite : null}
         default:
             return state
     }
