@@ -1,7 +1,7 @@
 const movieState = {
     movies : null,
     loading : false,
-    pages : "search",
+    pages : "favourite",
     favourite : null
 }
 
