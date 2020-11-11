@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { moviesData } from './DummyDatas'
-export function Tables(props) {
-    
+import Favouritetoogle from './FavouriteToogle'
 
+
+function Tables(props) {
     return (
         <table className='table mt-4'>
             <thead className='star-bg-primary text-white'>
@@ -22,7 +24,7 @@ export function Tables(props) {
                                 <td className='text-secondary'>{val.Year}</td>
                                 <td className='text-secondary'>{val.imdbID}</td>
                                 <td className='text-secondary'>
-                                    <input type='button' value='Add to favourite' className='btn star-bg-primary text-white font-12' />
+                                    <Favouritetoogle isExist={props.favourite_ids ? props.favourite_ids.includes(val.imdbID) : false} />
                                 </td>
                             </tr>
                         )
@@ -32,3 +34,12 @@ export function Tables(props) {
         </table>
     )
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        favourite_ids : state.favourite_ids
+    }
+}
+
+export default connect(mapStateToProps)(Tables);

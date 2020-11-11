@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Emptydata } from './EmptyData'
-import { Tables } from './Tables'
+import Tables from './Tables'
+
 
 function Movielist(props) {
     

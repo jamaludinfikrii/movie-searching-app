@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Favourite from './components/Favourite'
 import Jumbotron from './components/Jumbotron'
 import Movielist from './components/MovieList'
 import Navigations from './components/Navigations'
+import { getStorage } from './redux/movieActions'
 function App(props) {
+  
+  let {getStorage} = props
+  useEffect(() => {
+    const getFavouriteData = () => {
+      getStorage()
+    }
+
+    getFavouriteData()
+  })
+
   return (
     <div>
       <Navigations />
@@ -26,4 +37,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,{getStorage})(App);
