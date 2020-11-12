@@ -1,4 +1,4 @@
-import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES, FETCH_MOVIE_ERROR, FETCH_MOVIE_SUCCESS, NULL_FAVOURITE } from "./types";
+import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES, FETCH_MOVIE_ERROR, FETCH_MOVIE_LOADING, FETCH_MOVIE_SUCCESS, NULL_FAVOURITE } from "./types";
 
 const movieState = {
     movies : null,
@@ -18,9 +18,11 @@ const MovieReducers = (state=movieState, action) => {
         case NULL_FAVOURITE:
             return{...state,favourite : null}
         case FETCH_MOVIE_SUCCESS:
-            return {...state,movies : action.payload}
+            return {...state,movies : action.payload,loading : false}
         case FETCH_MOVIE_ERROR : 
-            return {...state,error : action.payload}
+            return {...state,error : action.payload,loading : false}
+        case FETCH_MOVIE_LOADING : 
+            return {...state,loading : true}
         default:
             return state
     }

@@ -1,12 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Emptydata } from './EmptyData'
+import Loading from './Loading'
 import Tables from './Tables'
 
 
 
 function Movielist(props) {
     
+    if(props.loading){
+        return(
+            <div className='pt-5'>
+                <Loading />
+            </div>
+        )
+    }
 
     if(props.movies === null){
         return(
@@ -28,7 +36,8 @@ function Movielist(props) {
 
 const mapStateToProps = (state) => {
     return {
-        movies : state.movies
+        movies : state.movies,
+        loading : state.loading
     }
 }
 
