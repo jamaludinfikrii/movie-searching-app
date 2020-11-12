@@ -1,5 +1,5 @@
 import Axios from "axios"
-import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES,NULL_FAVOURITE,FETCH_MOVIE_SUCCESS,FETCH_MOVIE_ERROR, FETCH_MOVIE_LOADING } from "./types"
+import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES,NULL_FAVOURITE,FETCH_MOVIE_SUCCESS,FETCH_MOVIE_ERROR, FETCH_MOVIE_LOADING, MODAL_OPEN, FETCH_MOVIE_DETAIL_LOADING, FETCH_MOVIE_DETAIL_SUCCESS, MODAL_CLOSED } from "./types"
 import {omdbKeys} from './../keys/omdbKeys'
 
 export const goToPages = (pages) => {
@@ -128,5 +128,35 @@ export const searchDataMovie = (title) => {
         .catch((err) => {
             console.log(err)
         })
+    }
+}
+
+
+export const getDataMovieDetail = (imdbID) => {
+    return (dispatch) => {
+        dispatch({
+            type : MODAL_OPEN
+        })
+        dispatch({
+            type : FETCH_MOVIE_DETAIL_LOADING
+        })
+
+        Axios.get(`http://www.omdbapi.com/?apikey=${omdbKeys}&i=${imdbID}`)
+        .then((res) => {
+            dispatch({
+                type : FETCH_MOVIE_DETAIL_SUCCESS,
+                payload : res.data
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+}
+
+
+export const closeModal = () => {
+    return {
+        type : MODAL_CLOSED
     }
 }

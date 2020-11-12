@@ -16,7 +16,6 @@ function Movielist(props) {
             </div>
         )
     }
-    console.log(props.error)
     if(props.error !== null){
         return(
             <div className='container pt-4'>
@@ -29,7 +28,7 @@ function Movielist(props) {
         return(
             <div className='container pt-4'>
                 <Emptydata title='Data Empty' description="Start searching your movie now !!" />
-                <Modal />
+                
             </div>
         )
     }
@@ -39,6 +38,7 @@ function Movielist(props) {
         <div className='container py-5'>
             <h3 className='star-color-primary'>Your Movie Search</h3>
             <Tables data={props.movies}/>
+            <Modal />
         </div>
     )
 }

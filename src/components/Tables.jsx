@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Favouritetoogle from './FavouriteToogle'
+import { getDataMovieDetail } from './../redux/movieActions'
 
 
 function Tables(props) {
@@ -19,7 +20,7 @@ function Tables(props) {
                     props.data.map((val,index) => {
                         return(
                             <tr key={index}>
-                                <td><span className='star-link' style={{textDecoration:'underline'}}>{val.Title} </span> </td>
+                                <td><span onClick={() => props.getDataMovieDetail(val.imdbID)} className='star-link' style={{textDecoration:'underline'}}>{val.Title} </span> </td>
                                 <td className='text-secondary'>{val.Year}</td>
                                 <td className='text-secondary'>{val.imdbID}</td>
                                 <td className='text-secondary'>
@@ -41,4 +42,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Tables);
+export default connect(mapStateToProps,{getDataMovieDetail})(Tables);
