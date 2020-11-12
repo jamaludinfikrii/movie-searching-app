@@ -15,11 +15,19 @@ function Movielist(props) {
             </div>
         )
     }
+    console.log(props.error)
+    if(props.error !== null){
+        return(
+            <div className='container pt-4'>
+                <Emptydata title='Error !!' description={props.error}/>
+            </div>
+        )
+    }
 
     if(props.movies === null){
         return(
             <div className='container pt-4'>
-                <Emptydata description="Start searching your movie now !!" />
+                <Emptydata title='Data Empty' description="Start searching your movie now !!" />
             </div>
         )
     }
@@ -37,7 +45,8 @@ function Movielist(props) {
 const mapStateToProps = (state) => {
     return {
         movies : state.movies,
-        loading : state.loading
+        loading : state.loading,
+        error : state.error
     }
 }
 

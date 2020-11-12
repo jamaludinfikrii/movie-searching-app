@@ -5,11 +5,11 @@ import Tables from './Tables'
 
 function Favourite(props) {
     
-
-    if(props.favourite === null){
+    
+    if(props.favourite === null || JSON.parse(props.favourite).length === 0){
         return(
             <div className='container pt-4'>
-                <Emptydata description="Add your favourite movie now !!" />
+                <Emptydata title='Data Empty' description="Add your favourite movie now !!" />
             </div>
         )
     }

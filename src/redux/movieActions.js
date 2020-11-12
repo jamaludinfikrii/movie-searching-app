@@ -89,7 +89,7 @@ export const onRemoveFromFavourites = (id) => {
     localStorage.setItem('favourites_data',favourites)
     localStorage.setItem('favourites_ids',favourites_ids)
 
-    if(favourites && favourites_ids){
+    if(JSON.parse(favourites) && JSON.parse(favourites_ids)){
         return{
             type : CHANGE_FAVOURITE_DATA,
             payload : {
@@ -112,8 +112,7 @@ export const searchDataMovie = (title) => {
         })
         Axios.get(`http://www.omdbapi.com/?apikey=${omdbKeys}&s=${title}`)
         .then((res) => {
-            console.log(res.data.Search)
-                if(res.data.Respones === 'False'){
+                if(res.data.Response === 'False'){
                     dispatch({
                         type : FETCH_MOVIE_ERROR,
                         payload : res.data.Error

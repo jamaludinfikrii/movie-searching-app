@@ -18,7 +18,7 @@ const MovieReducers = (state=movieState, action) => {
         case NULL_FAVOURITE:
             return{...state,favourite : null}
         case FETCH_MOVIE_SUCCESS:
-            return {...state,movies : action.payload,loading : false}
+            return {...state,movies : action.payload,loading : false,error : null}
         case FETCH_MOVIE_ERROR : 
             return {...state,error : action.payload,loading : false}
         case FETCH_MOVIE_LOADING : 
