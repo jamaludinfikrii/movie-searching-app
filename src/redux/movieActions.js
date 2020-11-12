@@ -32,18 +32,20 @@ export const onAddToFavourites = (data) => {
     let favourites_ids = localStorage.getItem('favourites_ids')
 
 
-  
-
+    
     if(favourites && favourites_ids){
         favourites = JSON.parse(favourites)
         favourites_ids = JSON.parse(favourites_ids)
        
         favourites.push(data)
-        favourites_ids.push(data.imdbId)
+        favourites_ids.push(data.imdbID)
     }else{
         favourites = [data]
-        favourites_ids = [data.imdbId]
+        favourites_ids = [data.imdbID]
     }
+
+    console.log(favourites)
+    console.log(favourites_ids)
 
     favourites = JSON.stringify(favourites)
     favourites_ids = JSON.stringify(favourites_ids)

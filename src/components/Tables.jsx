@@ -24,7 +24,7 @@ function Tables(props) {
                                 <td className='text-secondary'>{val.Year}</td>
                                 <td className='text-secondary'>{val.imdbID}</td>
                                 <td className='text-secondary'>
-                                    <Favouritetoogle isExist={props.favourite_ids ? props.favourite_ids.includes(val.imdbID) : false} />
+                                    <Favouritetoogle data={val} isExist={props.favourite_ids ? props.favourite_ids.includes(val.imdbID) : false} />
                                 </td>
                             </tr>
                         )
