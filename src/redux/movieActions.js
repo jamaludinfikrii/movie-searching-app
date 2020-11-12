@@ -70,3 +70,34 @@ export const onAddToFavourites = (data) => {
         }
     }
 }
+
+
+export const onRemoveFromFavourites = (id) => {
+    let favourites = JSON.parse(localStorage.getItem('favourites_data'))
+    let favourites_ids = JSON.parse(localStorage.getItem('favourites_ids'))
+
+    let index = favourites_ids.indexOf(id)
+    console.log(index)
+    favourites.splice(index,1)
+    favourites_ids.splice(index,1)
+
+    favourites = JSON.stringify(favourites)
+    favourites_ids = JSON.stringify(favourites_ids)
+    
+    localStorage.setItem('favourites_data',favourites)
+    localStorage.setItem('favourites_ids',favourites_ids)
+
+    if(favourites && favourites_ids){
+        return{
+            type : CHANGE_FAVOURITE_DATA,
+            payload : {
+                favourites,
+                favourites_ids
+            }
+        }
+    }else{
+        return{
+            type : NULL_FAVOURITE
+        }
+    }
+}

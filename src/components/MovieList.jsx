@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Emptydata } from './EmptyData'
 import Tables from './Tables'
+import { moviesData } from './DummyDatas'
+
 
 
 function Movielist(props) {
@@ -17,7 +19,7 @@ function Movielist(props) {
     return (
         <div className='container py-5'>
             <h3 className='star-color-primary'>Your Movie Search</h3>
-            <Tables />
+            <Tables data={moviesData}/>
         </div>
     )
 }

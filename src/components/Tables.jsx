@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { moviesData } from './DummyDatas'
 import Favouritetoogle from './FavouriteToogle'
 
 
@@ -17,14 +16,14 @@ function Tables(props) {
             </thead>
             <tbody>
                 {
-                    moviesData.map((val,index) => {
+                    props.data.map((val,index) => {
                         return(
                             <tr key={index}>
                                 <td><span className='star-link' style={{textDecoration:'underline'}}>{val.Title} </span> </td>
                                 <td className='text-secondary'>{val.Year}</td>
                                 <td className='text-secondary'>{val.imdbID}</td>
                                 <td className='text-secondary'>
-                                    <Favouritetoogle data={val} isExist={props.favourite_ids ? props.favourite_ids.includes(val.imdbID) : false} />
+                                    <Favouritetoogle index={index} data={val} isExist={props.favourite_ids ? props.favourite_ids.includes(val.imdbID) : false} />
                                 </td>
                             </tr>
                         )
