@@ -1,4 +1,6 @@
-import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES,NULL_FAVOURITE } from "./types"
+import Axios from "axios"
+import { CHANGE_FAVOURITE_DATA, CHANGE_PAGES,NULL_FAVOURITE,FETCH_MOVIE_SUCCESS,FETCH_MOVIE_ERROR } from "./types"
+import {omdbKeys} from './../keys/omdbKeys'
 
 export const goToPages = (pages) => {
     return{
@@ -98,6 +100,38 @@ export const onRemoveFromFavourites = (id) => {
     }else{
         return{
             type : NULL_FAVOURITE
+        }
+    }
+}
+
+
+export const searchDataMovie = (title) => {
+    return (dispatch) => {
+        if(title.length > 3){
+            Axios.get(`http://www.omdbapi.com/?apikey=${omdbKeys}&s=${title}`)
+            .then((res) => {
+                console.log(res.data.Search)
+                 if(res.data.Respones === 'False'){
+                     dispatch({
+                         type : FETCH_MOVIE_ERROR,
+                         payload : res.data.Error
+                     })
+                     // movie error
+                 }else{
+                     dispatch({
+                         type : FETCH_MOVIE_SUCCESS,
+                         payload : res.data.Search
+                     })
+                 }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }else{
+            dispatch({
+                type : FETCH_MOVIE_ERROR,
+                payload : 'Search character at least 3'
+            })
         }
     }
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import cameraIcon from './../icons/video-camera.svg'
-import searchIcon from './../icons/search.svg'
+
 import favouriteIcon from './../icons/rating.svg'
 import { connect } from 'react-redux'
+import SearchInput from './SearchInput'
 
 function Jumbotron(props) {
     return (
@@ -17,10 +18,7 @@ function Jumbotron(props) {
                 <div className="row mx-3 mx-md-0 justify-content-center mt-5">
                     {
                         props.pages === 'search' &&
-                        <div className='col-md-6 d-flex' style={{backgroundColor : "#f6f7fa" ,borderRadius : '20px'}}>
-                            <input  placeholder='Search your favourites here !!' style={{backgroundColor : "#f6f7fa",border : "none"}} className='star-input py-3 px-3 flex-grow-1 font-12' type="text"/>
-                            <img className='star-link' src={searchIcon} alt="icon"/>
-                        </div>
+                        <SearchInput />
                     }
                 </div>
             </div>
