@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import Favourite from './components/Favourite'
+import Favourite from './pages/Favourite'
 import Jumbotron from './components/Jumbotron'
-import Movielist from './components/MovieList'
+import Movielist from './pages/MovieList'
 import Navigations from './components/Navigations'
 import { getStorage } from './redux/movieActions'
 function App(props) {

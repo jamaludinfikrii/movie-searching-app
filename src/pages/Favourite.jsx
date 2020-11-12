@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Emptydata } from './EmptyData'
-import Tables from './Tables'
+import { Emptydata } from '../components/EmptyData'
+import Tables from '../components/Tables'
 
 function Favourite(props) {
     

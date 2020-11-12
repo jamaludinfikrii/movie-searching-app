@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Emptydata } from './EmptyData'
-import Loading from './Loading'
-import Tables from './Tables'
+import { Emptydata } from '../components/EmptyData'
+import Loading from '../components/Loading'
+import Modal from '../components/Modal'
+import Tables from '../components/Tables'
 
 
 
@@ -28,6 +29,7 @@ function Movielist(props) {
         return(
             <div className='container pt-4'>
                 <Emptydata title='Data Empty' description="Start searching your movie now !!" />
+                <Modal />
             </div>
         )
     }
