@@ -136,3 +136,10 @@ body{
   .ai-display-none {
     display: none;
   }
+
+
+  @media only screen and (max-width: 600px) {
+    .ai-modal-main{
+        width: 90%;
+    }
+  }

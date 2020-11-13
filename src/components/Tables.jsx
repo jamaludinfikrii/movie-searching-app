@@ -6,7 +6,7 @@ import { getDataMovieDetail } from './../redux/movieActions'
 
 function Tables(props) {
     return (
-        <table className='table mt-4'>
+        <table className='table table-responsive-sm mt-4'>
             <thead className='star-bg-primary text-white'>
                 <tr>
                     <th scope="col">Title</th>
